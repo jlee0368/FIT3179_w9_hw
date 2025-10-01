@@ -10,7 +10,7 @@
       "mark": {"type": "geoshape", "fill": "#dbeeff"}  
     },
     {
-      "data": {"url": "https://raw.githubusercontent.com/jlee0368/FIT3179_w9_hw/main/js/my.json", "format": {"type": "json"}},
+      "data": {"url": "https://jlee0368.github.io/FIT3179_w9_hw/js/my.json", "format": {"type": "json"}},
       "mark": {"type": "geoshape", "fill": "#c8e6c9", "stroke": "white"}   
     },
     {
@@ -18,7 +18,7 @@
       "mark": {"type": "geoshape", "fill": null, "stroke": "#b0c4de", "strokeWidth": 0.5}
     },
     {
-      "data": {"url": "https://raw.githubusercontent.com/jlee0368/FIT3179_w9_hw/main/data/MyRTKnet_station_loc.csv"},
+      "data": {"url": "https://jlee0368.github.io/FIT3179_w9_hw/data/MyRTKnet_station_loc.csv"},
       "transform": [
         {"calculate": "toNumber(datum['Latitude'])", "as": "lat"},
         {"calculate": "toNumber(datum['Longitude'])", "as": "lon"},
