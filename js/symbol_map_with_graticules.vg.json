@@ -1,0 +1,64 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 1000,
+  "height": 400,
+  "title": "MyRTKnet Station Network in Malaysia",
+  "projection": {"type": "mercator", "center": [109.5, 4.5], "scale": 2500},
+  "layer": [
+    {
+      "data": {"sphere": true},
+      "mark": {"type": "geoshape", "fill": "#dbeeff"}  
+    },
+    {
+      "data": {"url": "https://raw.githubusercontent.com/jlee0368/FIT3179/main/w9_hw/js/my.json", "format": {"type": "json"}},
+      "mark": {"type": "geoshape", "fill": "#c8e6c9", "stroke": "white"}   
+    },
+    {
+      "data": {"graticule": {"step": [1, 1]}},        
+      "mark": {"type": "geoshape", "fill": null, "stroke": "#b0c4de", "strokeWidth": 0.5}
+    },
+    {
+      "data": {"url": "https://raw.githubusercontent.com/jlee0368/FIT3179/main/w9_hw/data/MyRTKnet_station_loc.csv"},
+      "transform": [
+        {"calculate": "toNumber(datum['Latitude'])", "as": "lat"},
+        {"calculate": "toNumber(datum['Longitude'])", "as": "lon"},
+        {"calculate": "toNumber(datum['Height in meter'])", "as": "height_m"}
+      ],
+      "mark": {"type": "circle", "opacity": 0.85, "stroke": "white", "strokeWidth": 0.5},
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "color": {
+          "field": "Receiver Type",
+          "type": "nominal",
+          "title": "Receiver Type",
+          "legend": {"orient": "right"}
+        },
+        "shape": {
+          "field": "Antenna Type",
+          "type": "nominal",
+          "title": "Antenna Type"
+        },
+        "size": {
+          "field": "height_m",
+          "type": "quantitative",
+          "title": "Height (m)",
+          "scale": {"range": [40, 300]}
+        },
+        "tooltip": [
+          {"field": "Name", "title": "Name"},
+          {"field": "Code", "title": "Code"},
+          {"field": "IERS DOMES Number", "title": "IERS DOMES"},
+          {"field": "Receiver Type", "title": "Receiver"},
+          {"field": "Antenna Type", "title": "Antenna"},
+          {"field": "Elevation Mask in Degree", "title": "Elevation Mask (°)"},
+          {"field": "Recording Rate", "title": "Recording Rate"},
+          {"field": "Height in meter", "title": "Height (m)"},
+          {"field": "Latitude", "title": "Latitude"},
+          {"field": "Longitude", "title": "Longitude"}
+        ]
+      }
+    }
+  ],
+  "config": {"view": {"stroke": null}}
+}

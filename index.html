@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MyRTKnet Station Network in Malaysia</title>
+
+  <!-- Import Vega & Vega-Lite -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+</head>
+<body>
+
+  <header>
+    <h1>MyRTKnet Station Network in Malaysia</h1>
+  </header>
+
+  <main>
+    <div id="symbol_map"></div>
+  </main>
+
+  <script type="text/javascript">
+    var spec = "js/symbol_map_with_graticules.vg.json";
+    vegaEmbed('#symbol_map', spec, {actions: false})
+      .then(function(result) {
+        // you can access result.view here
+      })
+      .catch(console.error);
+  </script>
+
+</body>
+</html>
+
